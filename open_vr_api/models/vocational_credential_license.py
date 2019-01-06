@@ -1,5 +1,5 @@
 from django.db import models
-from testsite.models.individualized_plan_for_employment import IndividualizedPlanForEmployment
+from open_vr_api.models.individualized_plan_for_employment import IndividualizedPlanForEmployment
 
 
 class VocationalCredentialLicense(models.Model):

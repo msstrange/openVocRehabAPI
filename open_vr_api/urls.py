@@ -15,9 +15,9 @@ Including another URLconf
 """
 
 from django.urls import path
-from testsite.views.login import login
-from testsite.views.individual_characteristics import IndividualCharacteristicsDetail
-from testsite.views.application import ApplicationDetail
+from open_vr_api.views.login import login
+from open_vr_api.views.individual_characteristics import IndividualCharacteristicsDetail
+from open_vr_api.views.application import ApplicationDetail
 from graphene_django.views import GraphQLView
 
 urlpatterns = [

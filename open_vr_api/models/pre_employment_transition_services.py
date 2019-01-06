@@ -1,5 +1,5 @@
 from django.db import models
-from testsite.models.service import Service
+from open_vr_api.models.service import Service
 
 
 class PreemploymentTransitionServices(models.Model):

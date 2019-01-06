@@ -1,5 +1,5 @@
 import graphene
-from testsite.user.model import VrUser
+from open_vr_api.user.model import VrUser
 from .model import Application
 import datetime
 

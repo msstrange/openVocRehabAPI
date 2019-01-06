@@ -1,6 +1,6 @@
-from testsite.application.model import Application
-from testsite.serializers.application import ApplicationSerializer
-from testsite.user.model import VrUser
+from open_vr_api.application.model import Application
+from open_vr_api.serializers.application import ApplicationSerializer
+from open_vr_api.user.model import VrUser
 from rest_framework import mixins, generics
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication

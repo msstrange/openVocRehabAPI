@@ -1,5 +1,5 @@
 from django.db import models
-from testsite.models.disability import Disability
+from open_vr_api.models.disability import Disability
 
 
 class PrimaryDisabilityCode(models.Model):

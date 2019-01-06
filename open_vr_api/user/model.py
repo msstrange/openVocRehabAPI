@@ -1,19 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
-from testsite.application.model import Application
-from testsite.models.eligibility import Eligibility
-from testsite.models.order_of_selection import OrderOfSelection
-from testsite.models.disability import Disability
-from testsite.models.trial_work_experience import TrialWorkExperience
-from testsite.models.individualized_plan_for_employment import IndividualizedPlanForEmployment
-from testsite.models.pre_employment_transition_services import PreemploymentTransitionServices
-from testsite.models.VR_SE_service import VrSeService
-from testsite.models.career_services import CareerServices
-from testsite.models.other_service import OtherService
-from testsite.models.measurable_skill_gains import MeasurableSkillGains
-from testsite.models.employment import Employment
-from testsite.models.exit import Exit
-from testsite.models.post_exit import PostExit
+from open_vr_api.application.model import Application
+from open_vr_api.models.eligibility import Eligibility
+from open_vr_api.models.order_of_selection import OrderOfSelection
+from open_vr_api.models.disability import Disability
+from open_vr_api.models.trial_work_experience import TrialWorkExperience
+from open_vr_api.models.individualized_plan_for_employment import IndividualizedPlanForEmployment
+from open_vr_api.models.pre_employment_transition_services import PreemploymentTransitionServices
+from open_vr_api.models.VR_SE_service import VrSeService
+from open_vr_api.models.career_services import CareerServices
+from open_vr_api.models.other_service import OtherService
+from open_vr_api.models.measurable_skill_gains import MeasurableSkillGains
+from open_vr_api.models.employment import Employment
+from open_vr_api.models.exit import Exit
+from open_vr_api.models.post_exit import PostExit
 
 
 # Connects Django user to their vr related information.

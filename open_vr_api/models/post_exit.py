@@ -1,5 +1,5 @@
 from django.db import models
-from testsite.models.quarterly_report import QuarterlyReport
+from open_vr_api.models.quarterly_report import QuarterlyReport
 
 
 class PostExit(models.Model):

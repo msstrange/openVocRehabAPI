@@ -1,8 +1,8 @@
 from django.db import models
-from testsite.models.individual_characterists import IndividualCharacteristics
-from testsite.models.location_information import LocationInformation
-from testsite.models.support import Support
-from testsite.models.medical_insurance_coverage import MedicalInsuranceCoverage
+from open_vr_api.models.individual_characterists import IndividualCharacteristics
+from open_vr_api.models.location_information import LocationInformation
+from open_vr_api.models.support import Support
+from open_vr_api.models.medical_insurance_coverage import MedicalInsuranceCoverage
 
 
 class Application(models.Model):

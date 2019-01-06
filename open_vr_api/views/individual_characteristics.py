@@ -1,6 +1,6 @@
-from testsite.models.individual_characterists import IndividualCharacteristics
-from testsite.serializers.individual_characteristics import IndividualCharacteristicsSerializer
-from testsite.user.model import VrUser
+from open_vr_api.models.individual_characterists import IndividualCharacteristics
+from open_vr_api.serializers.individual_characteristics import IndividualCharacteristicsSerializer
+from open_vr_api.user.model import VrUser
 from rest_framework import mixins, generics, status
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication

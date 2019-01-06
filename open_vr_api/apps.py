@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class TestsiteConfig(AppConfig):
-    name = 'testsite'
+    name = 'open_vr_api'

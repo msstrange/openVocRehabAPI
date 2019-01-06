@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from testsite.models.individual_characterists import IndividualCharacteristics
-from testsite.application.model import Application
+from open_vr_api.models.individual_characterists import IndividualCharacteristics
+from open_vr_api.application.model import Application
 import datetime
 
 
