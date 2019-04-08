@@ -9,6 +9,7 @@ class CreateUser(graphene.Mutation):
     email = graphene.String()
     first_name = graphene.String()
     last_name = graphene.String()
+    success = graphene.Boolean()
 
     class Arguments:
         username = graphene.String()
@@ -32,5 +33,6 @@ class CreateUser(graphene.Mutation):
             username=user.username,
             email=user.email,
             first_name=user.first_name,
-            last_name=user.last_name
+            last_name=user.last_name,
+            success=True
         )

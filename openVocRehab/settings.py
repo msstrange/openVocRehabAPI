@@ -26,7 +26,7 @@ SECRET_KEY = 'f($(u18%%ej*2ed*ubz))1j0_=cr_o5(-v-arm84bzg2cl1pdk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'testsite.apps.TestsiteConfig',
+    'open_vr_api.apps.open_vr_apiConfig',
 
     'rest_framework.authtoken',
     
     'graphene_django',
+    'django_s3_storage',
+    'zappa_django_utils'
 ]
 
 MIDDLEWARE = [
@@ -62,7 +64,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'openVocRehab.urls'
 
 GRAPHENE = {
-    'SCHEMA': 'testsite.schema.schema',
+    'SCHEMA': 'open_vr_api.schema.schema',
     'MIDDLEWARE': [
             'graphql_jwt.middleware.JSONWebTokenMiddleware',
         ],
@@ -96,10 +98,10 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'openVocRehab',
-        'USER': 'root',
+        'NAME': 'openvocrehab',
+        'USER': 'ovr_admin',
         'PASSWORD': password,
-        'HOST': '127.0.0.1',
+        'HOST': 'openvocrehab.cluster-ci0xrzvqrcjn.us-east-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
@@ -144,5 +146,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+S3_BUCKET = "ovrvocrehab"
+
+STATICFILES_STORAGE = "django_s3_storage.storage.StaticS3Storage"
+
+AWS_S3_BUCKET_NAME_STATIC = S3_BUCKET
+
+STATIC_URL = "https://%s.s3.amazonaws.com/" % S3_BUCKET
 
 STATIC_URL = '/static/'

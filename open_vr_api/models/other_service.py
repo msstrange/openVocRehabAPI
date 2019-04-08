@@ -10,8 +10,8 @@ class OtherService(models.Model):
     maintenance = models.OneToOneField(
         Service, null=True, on_delete=models.PROTECT, related_name='maintenance')
 
-    rehabilitation_technology = models.OneToOneField(
-        Service, null=True, on_delete=models.PROTECT, related_name='rehabilitation_technology')
+    Rehabilitation_technology = models.OneToOneField(
+        Service, null=True, on_delete=models.PROTECT, related_name='Rehabilitation_technology')
 
     personal_assistance_services = models.OneToOneField(
         Service, null=True, on_delete=models.PROTECT, related_name='personal_assistance_services')

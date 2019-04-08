@@ -8,6 +8,10 @@ class Query(graphene.ObjectType):
     pass
 
 
+class Query(graphene.ObjectType):
+    create_user = CreateUser.Field()
+
+
 class Mutation(graphene.ObjectType):
     create_user = CreateUser.Field()
     token_auth = graphql_jwt.ObtainJSONWebToken.Field()
@@ -15,4 +19,5 @@ class Mutation(graphene.ObjectType):
     refresh_token = graphql_jwt.Refresh.Field()
     create_application = CreateApplication.Field()
 
-schema = graphene.Schema(mutation=Mutation)
+
+schema = graphene.Schema(query=Query, mutation=Mutation)

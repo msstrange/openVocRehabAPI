@@ -15,15 +15,8 @@ Including another URLconf
 """
 
 from django.urls import path
-from open_vr_api.views.login import login
-from open_vr_api.views.individual_characteristics import IndividualCharacteristicsDetail
-from open_vr_api.views.application import ApplicationDetail
 from graphene_django.views import GraphQLView
 
 urlpatterns = [
     path('', GraphQLView.as_view(graphiql=True)),
-    path('login/', login, name='login'),
-    path('application/', ApplicationDetail.as_view(), name='application'),
-    path('individual_characteristics/', IndividualCharacteristicsDetail.as_view(),
-         name='individual_characteristics'),
 ]

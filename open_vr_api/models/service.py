@@ -23,14 +23,14 @@ class Service(models.Model):
 
     )
 
-    community_rehabilitation_programs = 1
+    community_Rehabilitation_programs = 1
     private_CRP = 2
     public_service_provider = 3
     other_service_provider = 4
 
     purchased_service_provider_choices = (
 
-        (community_rehabilitation_programs, 'Community Rehabilitation Programs (CRPs)'),
+        (community_Rehabilitation_programs, 'Community Rehabilitation Programs (CRPs)'),
         (private_CRP, 'Private CRP'),
         (public_service_provider, 'Public Service Provider'),
         (other_service_provider, 'Other Private Service Provider')
@@ -54,7 +54,7 @@ class Service(models.Model):
     indian_vr_services = 3
     public_independent_living = 4
     child_protective_services = 5
-    public_rehabilitation_program = 6
+    public_Rehabilitation_program = 6
     employer_provided_benefits = 7
     public_elementary_secondary = 8
     public_institution_postsecondary = 9
@@ -79,7 +79,7 @@ class Service(models.Model):
         (indian_vr_services, 'American Indian VR Services Program'),
         (public_independent_living, 'Public Centers for Independent Living'),
         (child_protective_services, 'Child Protective Service'),
-        (public_rehabilitation_program, 'Public Rehabilitation Program'),
+        (public_Rehabilitation_program, 'Public Rehabilitation Program'),
         (employer_provided_benefits, 'Employer Provided Benefits'),
         (public_elementary_secondary, 'Public Educational Institution (elementary/secondary)'),
         (public_institution_postsecondary, 'Public Educational Institution (postsecondary)'),
