@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-from openVocRehab.password import password
+from openVocRehab.password import local_password
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,12 +26,31 @@ SECRET_KEY = 'f($(u18%%ej*2ed*ubz))1j0_=cr_o5(-v-arm84bzg2cl1pdk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
-
 # Application definition
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = False
+
+ALLOWED_HOSTS = ['*']
+
+CORS_ALLOW_HEADERS = (
+'x-requested-with',
+'content-type',
+'accept',
+'origin',
+'authorization',
+'X-CSRFToken')
+
+CSRF_TRUSTED_ORIGINS = (
+    'localhost:3000/',
+)
+
+CSRF_COOKIE_SECURE = False
+
+CORS_REPLACE_HTTPS_REFERER = True
+
 INSTALLED_APPS = [
+    'corsheaders',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,22 +62,23 @@ INSTALLED_APPS = [
     'open_vr_api.apps.open_vr_apiConfig',
 
     'rest_framework.authtoken',
-    
+
     'graphene_django',
     'django_s3_storage',
     'zappa_django_utils'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'graphql_jwt.middleware.JSONWebTokenMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'graphql_jwt.middleware.JSONWebTokenMiddleware'
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'openVocRehab.urls'
@@ -89,19 +109,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'openVocRehab.wsgi.application'
 
 REST_FRAMEWORK = {
-    "DATE_INPUT_FORMATS": ["%d-%m-%Y"]
+    "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
 }
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'mysql.connector.django',
+    #     'NAME': 'openvocrehab',
+    #     'USER': 'ovr_admin',
+    #     'PASSWORD': password,
+    #     'HOST': 'openvocrehab.cluster-ci0xrzvqrcjn.us-east-2.rds.amazonaws.com',
+    #     'PORT': '3306',
+    # },
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'openvocrehab',
-        'USER': 'ovr_admin',
-        'PASSWORD': password,
-        'HOST': 'openvocrehab.cluster-ci0xrzvqrcjn.us-east-2.rds.amazonaws.com',
+        'USER': 'root',
+        'PASSWORD': local_password,
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
