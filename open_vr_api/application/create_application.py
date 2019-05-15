@@ -1,25 +1,20 @@
 import graphene
 from open_vr_api.user.model import VrUser
 from .model import Application
+from .type import ApplicationType
 import datetime
 
 
 class CreateApplication(graphene.Mutation):
 
-    success = graphene.Boolean()
-    date_of_birth = graphene.Date()
-    source_of_referral = graphene.Int()
-    student_status = graphene.Int()
-    application_date = graphene.Date()
-
     class Arguments:
-        date_of_birth = graphene.Date()
-        source_of_referral = graphene.Int()
-        student_status = graphene.Int()
+        date_of_birth = graphene.Date(required=True)
+        source_of_referral = graphene.Int(required=True)
+        student_status = graphene.Int(required=True)
+
+    application = graphene.Field(ApplicationType)
 
     def mutate(self, info, date_of_birth, source_of_referral, student_status):
-
-        print(info.context.user.is_anonymous)
 
         if not info.context.user.is_anonymous:
 
@@ -39,12 +34,8 @@ class CreateApplication(graphene.Mutation):
 
             return CreateApplication(
 
-                success=True,
-                date_of_birth=new_app.date_of_birth,
-                source_of_referral=new_app.source_of_referral,
-                student_status=new_app.student_status,
-                application_date=new_app.application_date
+                application=new_app
             )
 
         else:
-            return CreateApplication(success=False)
+            raise Exception("User not authenticated.")

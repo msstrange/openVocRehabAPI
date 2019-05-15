@@ -35,7 +35,7 @@ class IndividualCharacteristics(models.Model):
     homeless_shelter = 9
     other = 10
 
-    Living_Situation_Choices = (
+    Living_Arrangement_Choices = (
 
         (private_residence, 'Private Residence (independent, or with family or other person)'),
         (community_residential_facility, 'Community Residential Facility/Group Home'),
@@ -58,6 +58,7 @@ class IndividualCharacteristics(models.Model):
     white = models.IntegerField(choices=Race_Choices)
     hispanic = models.IntegerField(choices=Race_Choices)
     veteran = models.BooleanField()
+    living_arrangement = models.IntegerField(choices=Living_Arrangement_Choices)
 
 
 

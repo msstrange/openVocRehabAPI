@@ -1,8 +1,8 @@
 from django.db import models
-from open_vr_api.models.individual_characterists import IndividualCharacteristics
-from open_vr_api.models.location_information import LocationInformation
-from open_vr_api.models.support import Support
-from open_vr_api.models.medical_insurance_coverage import MedicalInsuranceCoverage
+from open_vr_api.individual_characteristics.model import IndividualCharacteristics
+from open_vr_api.location_information.model import LocationInformation
+from open_vr_api.support.model import Support
+from open_vr_api.medical_insurance_coverage.model import MedicalInsuranceCoverage
 
 
 class Application(models.Model):
@@ -85,7 +85,7 @@ class Application(models.Model):
     No_Accommodation = 3
     Not_Student = 0
 
-    Student_Status_Choice = (
+    Student_Status_Choices = (
 
         (Accommodation_504, "Individual is a student with a disability and has a section 504 accommodation."),
         (Individualized_Education_Program, "Individual is a student with adisability and" +
@@ -104,7 +104,7 @@ class Application(models.Model):
         null=True
     )
     source_of_referral = models.IntegerField(choices=Referral_Choices)
-    student_status = models.IntegerField(choices=Student_Status_Choice)
+    student_status = models.IntegerField(choices=Student_Status_Choices)
     location_information = models.OneToOneField(
         LocationInformation,
         on_delete=models.PROTECT,

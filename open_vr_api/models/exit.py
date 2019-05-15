@@ -1,7 +1,7 @@
 from django.db import models
 from open_vr_api.models.employment import Employment
-from open_vr_api.models.support import Support
-from open_vr_api.models.medical_insurance_coverage import MedicalInsuranceCoverage
+from open_vr_api.support.model import Support
+from open_vr_api.medical_insurance_coverage.model import MedicalInsuranceCoverage
 
 
 class Exit(models.Model):

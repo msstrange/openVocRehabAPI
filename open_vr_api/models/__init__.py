@@ -5,12 +5,9 @@ from .education import Education
 from .eligibility import Eligibility
 from .employment import Employment
 from .exit import Exit
-from .individual_characterists import IndividualCharacteristics
 from .individualized_plan_for_employment import IndividualizedPlanForEmployment
 from .ipe_employment import IpeEmployment
-from .location_information import LocationInformation
 from .measurable_skill_gains import MeasurableSkillGains
-from .medical_insurance_coverage import MedicalInsuranceCoverage
 from .order_of_selection import OrderOfSelection
 from .other_service import OtherService
 from .post_exit import PostExit
@@ -19,8 +16,13 @@ from .primary_disability_code import PrimaryDisabilityCode
 from .quarterly_report import QuarterlyReport
 from .secondary_disability_code import SecondaryDisabilityCode
 from .service import Service
-from .support import Support
 from .trial_work_experience import TrialWorkExperience
 from .vocational_credential_license import VocationalCredentialLicense
 from .VR_SE_service import VrSeService
 from .WIOA_program_involvement import WIOAProgramInvolvement
+from ..user.model import VrUser
+from ..application.model import Application
+from ..location_information.model import  LocationInformation
+from ..support.model import Support
+from ..medical_insurance_coverage.model import MedicalInsuranceCoverage
+from ..individual_characteristics.model import IndividualCharacteristics
